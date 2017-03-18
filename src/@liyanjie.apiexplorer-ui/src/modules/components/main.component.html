@@ -1,0 +1,100 @@
+﻿<template [ngIf]="resources">
+    <dl [ngClass]="{expanded:hash(group1.groupName)}" *ngFor="let group1 of resources" #groupA>
+        <dt>
+            <a href="{{path(group1.groupName)}}">{{group1.groupName}}</a>
+            <i class="fa fa-plus-square-o" *ngIf="!hash(group1.groupName)"></i>
+        </dt>
+        <dd>
+            <dl [ngClass]="{expanded:!groupB.folded}" *ngFor="let group2 of group1.groupList" #groupB>
+                <dt (click)="groupB.folded=!groupB.folded">
+                    <span>{{group2.groupName}}</span>
+                    <i class="fa fa-plus-square-o" *ngIf="groupB.folded"></i>
+                    <i class="fa fa-minus-square-o" *ngIf="!groupB.folded"></i>
+                </dt>
+                <dd class="{{resource.method}} {{timestamp(resource.timestamp)}}" [ngClass]="{expanded:hash(resource.method+'-'+resource.path)}" *ngFor="let resource of group2.groupList" #groupC>
+                    <header title="更新于：{{resource.timestamp||'无'}}">
+                        <div>
+                            <b>{{resource.method}}</b>
+                            <a href="{{path(group1.groupName,resource.method+'-'+resource.path)}}">{{resource.path}}</a>
+                        </div>
+                        <div>{{resource.summary}}</div>
+                    </header>
+                    <section class="produces">
+                        <div>支持格式</div>
+                        <span *ngFor="let produce of resource.produces">{{produce}}</span>
+                    </section>
+                    <section class="parameters">
+                        <div>请求参数</div>
+                        <table class="list">
+                            <thead>
+                                <tr>
+                                    <td class="name">名称</td>
+                                    <td class="desc">说明</td>
+                                    <td class="source">参数类型</td>
+                                    <td class="datatype">数据类型</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let parameter of resource.parameters">
+                                    <td>{{parameter.name}}</td>
+                                    <td>{{parameter.summary}}</td>
+                                    <td>{{parameter.source}}</td>
+                                    <td>
+                                        <div *ngIf="!parameter.type.definition">
+                                            <span>{{parameter.type.name}}</span> 
+                                            <span *ngIf="parameter.defaultValue">(default：<pre style="display:inline" (click)="setParameterValue&&setParameterValue(parameter.source,parameter.name,parameter.defaultValue)">{{parameter.defaultValue}}</pre>)</span>
+                                        </div>
+                                        <dl class="tabs" *ngIf="parameter.type.definition" #tabs>
+                                            <dt [ngClass]="{selected:tabs.selected==1}" (click)="tabs.selected=1">模型</dt>
+                                            <dd>
+                                                <definition [type]="parameter.type" [bind]="parameter.bindInclude" [clude]="true" [definitions]="definitions"></definition>
+                                            </dd>
+                                            <dt [ngClass]="{selected:tabs.selected==2||!tabs.selected}" (click)="tabs.selected=2">示例</dt>
+                                            <dd>
+                                                <example [type]="parameter.type" [bind]="parameter.bindInclude" [clude]="true" [definitions]="definitions" (click)="setParameterValue&&setParameterValue(parameter.source,parameter.name,example.content)" #example></example>
+                                            </dd>
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="responses">
+                        <div>返回结果</div>
+                        <table class="list">
+                            <thead>
+                                <tr>
+                                    <td class="name">HTTP状态码</td>
+                                    <td class="desc">说明</td>
+                                    <td class="datatype">数据类型</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let response of resource.responses">
+                                    <td>{{response.statusCode}}</td>
+                                    <td>{{response.summary}}</td>
+                                    <td>
+                                        <span *ngIf="!response.type.definition">{{response.type.name}}</span>
+                                        <dl class="tabs" *ngIf="response.type.definition" #tabs>
+                                            <dt [ngClass]="{selected:tabs.selected==1}" (click)="tabs.selected=1">模型</dt>
+                                            <dd>
+                                                <definition [type]="response.type" [bind]="response.bindExclude" [clude]="false" [definitions]="definitions"></definition>
+                                            </dd>
+                                            <dt [ngClass]="{selected:tabs.selected==2||!tabs.selected}" (click)="tabs.selected=2">示例</dt>
+                                            <dd>
+                                                <example [type]="response.type" [bind]="response.bindExclude" [clude]="false" [definitions]="definitions"></example>
+                                            </dd>
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="buttons">
+                        <button type="button" (click)="select(resource)&&section.testing=true">测试一下</button>
+                    </section>
+                </dd>
+            </dl>
+        </dd>
+    </dl>
+</template>

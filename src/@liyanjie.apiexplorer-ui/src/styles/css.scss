@@ -1,0 +1,309 @@
+﻿@mixin transition { transition: all ease 500ms; }
+
+header, footer, main, section, nav, article, aside, summary { display: block; }
+index, navigator, info, main, test, definition, example { display: block; }
+table.list { width: 100%; border-collapse: collapse; table-layout: fixed;
+    > thead { border-bottom: 1px solid #cccccc; color: #999999; vertical-align: bottom;
+        > tr > th,
+        > tr > td {
+            + th, + td { padding: 0; }
+        }
+    }
+    > tbody { vertical-align: top;
+        > tr > th,
+        > tr > td { line-height: 21px; padding: 5px 5px 5px 0; border-bottom: 1px dashed #ffffff;
+            + th, + td { padding: 5px 0; }
+        }
+    }
+}
+dl.tabs { position: relative; margin: 0; padding: 18px 0 0 0; overflow: hidden;
+    > dt { position: absolute; top: 0; width: 50px; height: 18px; text-align: center; color: #999999; cursor: pointer;
+        ~ dt { border-left: 1px solid #cccccc; }
+        &:nth-of-type(1) { left: 0; }
+        &:nth-of-type(2) { left: 50px; }
+        &:nth-of-type(3) { left: 100px; }
+        &:nth-of-type(4) { left: 150px; }
+        &:hover { text-decoration: underline; }
+        &.selected { color: #000000;
+            + dd { display: block; }
+        }
+    }
+    > dd { display: none; margin: 0; }
+}
+button { height: 30px; padding: 0 10px; border: 0; background-color: #cccccc; color: #ffffff; font-weight: bold; cursor: pointer;
+    &:hover { text-decoration: underline; }
+    &[disabled] { color: #cccccc; cursor: not-allowed;
+        &:hover { text-decoration: none; }
+    }
+}
+pre { margin: 0; padding: 8px; line-height: initial; background: #fcf6db; font-family: Consolas; overflow: auto;
+    .type { color: #3399ff; }
+    .annotation { color: #999999; }
+    .comment { color: #339933; }
+    .deleted { text-decoration: line-through; }
+}
+html,
+body { position: relative; width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden; font-size: 12px; font-family: Consolas, Verdana, 'Microsoft YaHei'; }
+index { position: absolute; left: 0; right: 0; top: 0; bottom: 0; width: auto; height: auto; overflow: hidden;
+    > header,
+    > section { position: fixed; left: 0; right: 0; width: auto;
+        > .content-wrapper { display: block; position: relative; height: 100%; margin: 0 40px; }
+    }
+
+    > header { top: 0; height: 40px; overflow: hidden; background: #666666;
+        > .content-wrapper {
+            a { color: #cccccc; text-decoration: none; }
+            b { font-size: 20px; color: #ffffff; }
+            > div,
+            > navigator { position: absolute; height: 100%; line-height: 40px; white-space: nowrap; }
+            > div { left: 0; text-align: left; }
+            > navigator { right: 0; text-align: right;
+                button { width: 80px; height: 24px; border: 0; }
+                select { position: absolute; z-index: 0; right: 80px; top: 8px; width: 360px; height: 24px; padding: 0 10px; border: 0; background-color: #ffffff; color: #000000; outline: none; }
+                input {
+                    z-index: 1;
+                    right: 100px;
+                    width: 320px;
+                    @extend select;
+                }
+            }
+        }
+    }
+    > section { top: 40px; bottom: 0; height: auto;
+        > .content-wrapper {
+            > header { position: absolute; top: 20px; width: 100%; height: 80px; overflow: hidden; text-align: center;
+                info {
+                    h4 { margin: 0; }
+                    h4 > b { font-size: 20px; }
+                }
+                section {
+                    > span { display: inline-block; width: 50px; height: 20px; line-height: 20px; margin: 5px; border-left: 5px solid #cccccc; text-align: left; text-indent: 5px;
+                        &.day0 { border-color: #ff0000; }
+                        &.day1 { border-color: #ff3333; }
+                        &.day2 { border-color: #ff6666; }
+                        &.week0 { border-color: #ff9999; }
+                        &.week1 { border-color: #ffcccc; }
+                        &.month0 { border-color: #ffffcc; }
+                        &.month1 { border-color: #ccffcc; }
+                        &.year0 { border-color: #99ff99; }
+                        &.year1 { border-color: #66cc66; }
+                        &.years { border-color: #339933; }
+                    }
+                }
+            }
+            > section { position: absolute; top: 100px; bottom: 0; width: 100%; height: auto;
+                > main {
+                    position: absolute;
+                    z-index: 9;
+                    left: 15%;
+                    width: 70%;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #ffffff;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    list-style: none;
+                    @include transition;
+                    > dl { margin: 0 0 20px 0; padding: 0 5px 5px 0; border-bottom: 1px solid #cccccc;
+                        > dt { margin: 0;
+                            > i { float: right; color: #999999; }
+                        }
+                        > dd { display: none; margin: 0;
+                            > dl { border-bottom: 1px solid #cccccc;
+                                > dt { line-height: 20px; color: #666666; font-weight: normal; cursor: pointer;
+                                    > i { float: right; color: #999999; }
+                                }
+                                > dd { display: none; margin: 5px 0; border-right: 5px solid #cccccc; background: #eeeeee;
+                                    > header { position: relative; height: 30px; border-bottom: 0 solid #cccccc; line-height: 30px; cursor: default;
+                                        b { display: inline-block; width: 60px; height: 100%; text-align: center; background-color: #cccccc; color: #ffffff; text-transform: uppercase; }
+                                        > div { position: absolute; height: 100%;
+                                            > span:hover { cursor: pointer; text-decoration: underline; }
+                                            &:last-child { right: 0; padding-right: 5px; text-align: right; }
+                                        }
+                                    }
+                                    > section { display: none; padding: 10px;
+                                        > div { line-height: 24px; }
+                                        &.produces {
+                                            span { display: inline-block; margin: 2px 5px 2px 0; padding: 5px 10px; background-color: #ffffff; cursor: default; }
+                                        }
+                                        &.parameters {
+                                            .list {
+                                                .name { width: 10%; }
+                                                .desc { width: 30%; }
+                                                .source { width: 10%; }
+                                                .datatype { width: 50%; }
+                                            }
+                                        }
+                                        &.responses {
+                                            .list {
+                                                .name { width: 10%; }
+                                                .desc { width: 40%; }
+                                                .datatype { width: 50%; }
+                                            }
+                                        }
+                                        &.buttons { text-align: right; }
+                                    }
+                                    &.GET { background-color: #e7f0f7;
+                                        > header { border-color: #c3d9ec;
+                                            b { background-color: #0f6ab4; }
+                                        }
+                                        > section {
+                                            table.list > thead { border-color: #c3d9ec; }
+                                            button { background-color: #0f6ab4; }
+                                        }
+                                        > header > div:last-child,
+                                        > section > div { color: #0f6ab4; }
+                                    }
+                                    &.POST { background-color: #e7f6ec;
+                                        > header { border-color: #c3e8d1;
+                                            b { background-color: #10a54a; }
+                                        }
+                                        > section {
+                                            table.list > thead { border-color: #c3e8d1; }
+                                            button { background-color: #10a54a; }
+                                        }
+                                        > header > div:last-child,
+                                        > section > div { color: #10a54a; }
+                                    }
+                                    &.PUT { background-color: #f9f2e9;
+                                        > header { border-color: #c5862b;
+                                            b { background-color: #c5862b; }
+                                        }
+                                        > section {
+                                            table.list > thead { border-color: #f0e0ca; }
+                                            button { background-color: #c5862b; }
+                                        }
+                                        > header > div:last-child,
+                                        > section > div { color: #c5862b; }
+                                    }
+                                    &.PATCH { background-color: #fce9e3;
+                                        > header { border-color: #f5d5c3;
+                                            b { background-color: #d38042; }
+                                        }
+                                        > section {
+                                            table.list > thead { border-color: #f5d5c3; }
+                                            button { background-color: #d38042; }
+                                        }
+                                        > header > div:last-child,
+                                        > section > div { color: #d38042; }
+                                    }
+                                    &.DELETE { background-color: #f5e8e8;
+                                        > header { border-color: #e8c6c7;
+                                            b { background-color: #a41e22; }
+                                        }
+                                        > section {
+                                            table.list > thead { border-color: #e8c6c7; }
+                                            button { background-color: #a41e22; }
+                                        }
+                                        > header > div:last-child,
+                                        > section > div { color: #a41e22; }
+                                    }
+                                    &.day0 { border-color: #ff0000; }
+                                    &.day1 { border-color: #ff3333; }
+                                    &.day2 { border-color: #ff6666; }
+                                    &.week0 { border-color: #ff9999; }
+                                    &.week1 { border-color: #ffcccc; }
+                                    &.month0 { border-color: #ffffcc; }
+                                    &.month1 { border-color: #ccffcc; }
+                                    &.year0 { border-color: #99ff99; }
+                                    &.year1 { border-color: #66cc66; }
+                                    &.years { border-color: #339933; }
+                                    &.expanded {
+                                        > header { border-bottom-width: 1px; }
+                                        > section { display: block; }
+                                    }
+                                }
+                                &.expanded { border: none;
+                                    > dt { color: #000000; font-weight: bold; }
+                                    > dd { display: block; }
+                                }
+                                + dl { }
+                            }
+                        }
+                        &.expanded { border-bottom: 0;
+                            > dd { display: block; }
+                        }
+                    }
+                }
+                > test {
+                    display: block;
+                    position: absolute;
+                    z-index: 8;
+                    left: 50%;
+                    width: 0;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #ffffff;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    @include transition;
+                    > section { min-height: 100%; padding: 0 5px;
+                        > h4 { margin: 0; text-align: right;
+                            > span { cursor: pointer; }
+                        }
+                        > div { min-height: 100%; margin: 1em 0 0 0;
+                            > section { padding: 10px;
+                                > div { line-height: 24px; }
+                                .list {
+                                    .name { width: 20%; }
+                                    .content { width: 80%; }
+                                    .curl, .url { white-space: nowrap; overflow: auto; }
+                                }
+                                select,
+                                input { box-sizing: border-box; width: 100%; height: 24px; border: 1px solid #cccccc; }
+                                input { padding: 0 4px; }
+                                textarea {
+                                    height: 80px;
+                                    resize: vertical;
+                                    @extend input;
+                                }
+                            }
+
+                            &.GET { background-color: #e7f0f7;
+                                > section {
+                                    > div { color: #0f6ab4; }
+                                    table.list > thead { border-color: #c3d9ec; }
+                                    button { background-color: #0f6ab4; }
+                                }
+                            }
+                            &.POST { background-color: #e7f6ec;
+                                > section {
+                                    > div { color: #10a54a; }
+                                    table.list > thead { border-color: #c3e8d1; }
+                                    button { background-color: #10a54a; }
+                                }
+                            }
+                            &.PUT { background-color: #f9f2e9;
+                                > section {
+                                    > div { color: #c5862b; }
+                                    table.list > thead { border-color: #f0e0ca; }
+                                    button { background-color: #c5862b; }
+                                }
+                            }
+                            &.PATCH { background-color: #fce9e3;
+                                > section {
+                                    > div { color: #d38042; }
+                                    table.list > thead { border-color: #f5d5c3; }
+                                    button { background-color: #d38042; }
+                                }
+                            }
+                            &.DELETE { background-color: #f5e8e8;
+                                > section {
+                                    > div { color: #a41e22; }
+                                    table.list > thead { border-color: #e8c6c7; }
+                                    button { background-color: #a41e22; }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.testing {
+                    > main { left: 0; width: 50%; }
+                    > test { width: 50%; }
+                }
+            }
+        }
+    }
+}

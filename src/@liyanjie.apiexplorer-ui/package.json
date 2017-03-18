@@ -1,0 +1,74 @@
+{
+    "author": {
+        "email": "liyanjie8712@outlook.com",
+        "name": "Li Yanjie",
+        "url": "http://liyanjie.me"
+    },
+    "description": "User Interface of ApiExplorer",
+    "dependencies": {
+        "@angular/common": "2.4.1",
+        "@angular/compiler": "2.4.1",
+        "@angular/core": "2.4.1",
+        "@angular/forms": "2.4.1",
+        "@angular/http": "2.4.1",
+        "@angular/platform-browser": "2.4.1",
+        "@angular/platform-browser-dynamic": "2.4.1",
+        "@angular/router": "3.4.1",
+        "@liyanjie/jslinq": "https://www.myget.org/F/liyanjie/npm/@liyanjie/jslinq/-/@liyanjie/jslinq-1.0.0.tgz",
+        "core-js": "*",
+        "font-awesome": "*",
+        "reflect-metadata": "*",
+        "rxjs": "*",
+        "zone.js": "*"
+    },
+    "devDependencies": {
+        "@types/core-js": "*",
+        "@types/jasmine": "*",
+        "@types/node": "*",
+        "clean-css": "*",
+        "concurrently": "*",
+        "del": "^2.2.2",
+        "gulp": "*",
+        "gulp-concat": "^2.6.1",
+        "gulp-livereload": "^3.8.1",
+        "gulp-load-plugins": "^1.5.0",
+        "gulp-minify-css": "^1.2.4",
+        "gulp-minify-html": "^1.0.6",
+        "gulp-rename": "^1.2.2",
+        "gulp-rollup": "*",
+        "gulp-sass": "*",
+        "gulp-uglify": "^2.0.1",
+        "html-minifier": "*",
+        "lite-server": "*",
+        "rollup": "*",
+        "rollup-plugin-alias": "*",
+        "rollup-plugin-angular": "*",
+        "rollup-plugin-cleanup": "*",
+        "rollup-plugin-node-resolve": "*",
+        "rollup-plugin-ts": "*",
+        "rollup-plugin-typescript": "*",
+        "rollup-watch": "^3.2.2",
+        "rxjs-es": "*",
+        "typescript": "*"
+    },
+    "files": [
+        "dist/**/*.*",
+        "package.json",
+        "README.md"
+    ],
+    "name": "@liyanjie/apiexplorer-ui",
+    "keywords": [
+        "ApiExplorer",
+        "ApiExplorerUI"
+    ],
+    "private": true,
+    "scripts": {
+        "gulp": "gulp",
+        "lite": "lite-server",
+        "rollup": "rollup -c ./rollup.config.js",
+        "rollup-angular": "rollup -c ./rollup.config.angular.js",
+        "rollup:w": "rollup -c --watch",
+        "start": "npm run rollup-angular && concurrently \"npm run gulp\" \"npm run rollup:w\" \"npm run lite\""
+    },
+    "version": "1.0.0"
+}

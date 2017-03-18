@@ -1,0 +1,46 @@
+﻿{
+    "title": "Liyanjie.ApiExplorer.Generator.Abstract",
+    "description": "Api查看器（Generator Abstract）",
+    "copyright": "© Liyanjie.me",
+    "version": "1.0.0-*",
+    "authors": [ "liyanjie8712@outlook.com" ],
+
+
+    "dependencies": {
+        "Newtonsoft.Json": "9.0.1"
+    },
+
+    "frameworks": {
+        "netstandard1.3": {
+            "buildOptions": {
+                "define": [ "NETSTANDARD" ]
+            },
+            "dependencies": {
+                "System.ComponentModel.Annotations": "4.3.0",
+                "System.IO.FileSystem": "4.3.0",
+                "System.Reflection.TypeExtensions": "4.3.0",
+                "System.Runtime.InteropServices": "4.3.0",
+                "System.Xml.XDocument": "4.3.0"
+            }
+        },
+        "netframework45": {
+            "buildOptions": {
+                "define": [ "NETFRAMEWORK" ]
+            },
+            "frameworkAssemblies": {
+                "System.ComponentModel.DataAnnotations": "4.0.0",
+                "System.Xml": "4.0.0",
+                "System.Xml.Linq": "4.0.0"
+            }
+        }
+    },
+
+    "buildOptions": {
+        "xmlDoc": true,
+        "keyFile": "../../tools/key.snk"
+    },
+
+    "packOptions": {
+        "owners": [ "Liyanjie.me" ]
+    }
+}

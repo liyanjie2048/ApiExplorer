@@ -1,0 +1,29 @@
+﻿{
+    "title": "Liyanjie.ApiExplorer.AspNet.WebApi",
+    "description": "Api查看器",
+    "copyright": "© Liyanjie.me",
+    "version": "1.0.0-*",
+    "authors": [ "liyanjie8712@outlook.com" ],
+
+    "dependencies": {
+        "Liyanjie.ApiExplorer.Generator.AspNet.WebApi": "1.0.0-*",
+        "Liyanjie.ApiExplorer.UI.AspNet": "1.0.0-*"
+    },
+
+    "frameworks": {
+        "netframework45": {
+            "buildOptions": {
+                "define": [ "NETFRAMEWORK" ]
+            }
+        }
+    },
+
+    "buildOptions": {
+        "xmlDoc": true,
+        "keyFile": "../../tools/key.snk"
+    },
+
+    "packOptions": {
+        "owners": [ "Liyanjie.me" ]
+    }
+}

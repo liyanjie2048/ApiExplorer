@@ -1,0 +1,30 @@
+﻿<header>
+    <div class="content-wrapper">
+        <div>
+            <a href="http://liyanjie.me"><b>ApiExplorer</b> 1.0.0 by liyanjie.me</a>
+        </div>
+        <navigator #navigator></navigator>
+    </div>
+</header>
+<section>
+    <div class="content-wrapper">
+        <header>
+            <info [info]="main.info" #info></info>
+            <section>
+                <span class="day0">1天内</span>
+                <span class="day1">2天内</span>
+                <span class="day2">3天内</span>
+                <span class="week0">1周内</span>
+                <span class="week1">2周内</span>
+                <span class="month0">1月内</span>
+                <span class="month1">2月内</span>
+                <span class="year0">1年内</span>
+                <span class="years">1年前</span>
+            </section>
+        </header>
+        <section [ngClass]="{testing:section.testing}" #section>
+            <main [section]="section" [docUrl]="navigator.docUrl" [setParameterValue]="test.setParameterValue" #main></main>
+            <test [section]="section" [basePath]="main.basePath||'/'" [resource]="main.resource" [headers]="main.headers" #test></test>
+        </section>
+    </div>
+</section>
