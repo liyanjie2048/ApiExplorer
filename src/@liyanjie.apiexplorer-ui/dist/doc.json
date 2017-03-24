@@ -1,0 +1,347 @@
+{
+    "basePath": "/",
+    "info": {
+        "version": "v1",
+        "title": "TEST",
+        "description": "TEST"
+    },
+    "headers": [],
+    "resources": [
+        {
+            "groupName": "Orders",
+            "path": "api/Orders",
+            "method": "POST",
+            "summary": "创建订单",
+            "produces": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+            "parameters": [
+                {
+                    "name": "order",
+                    "summary": "",
+                    "type": {
+                        "name": "Object",
+                        "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Order"
+                    },
+                    "source": "FromBody",
+                    "required": true
+                }
+            ],
+            "responses": [
+                {
+                    "statusCode": 200,
+                    "type": { "name": "" }
+                }
+            ]
+        },
+        {
+            "groupName": "Orders",
+            "path": "api/Orders/{id}",
+            "method": "GET",
+            "summary": "获取指定ID的订单信息",
+            "produces": [],
+            "parameters": [
+                {
+                    "name": "id",
+                    "summary": "订单ID",
+                    "type": {
+                        "name": "String",
+                        "format": "uuid"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                }
+            ],
+            "responses": [
+                {
+                    "statusCode": 200,
+                    "type": {
+                        "name": "Object",
+                        "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Order"
+                    }
+                }
+            ]
+        },
+        {
+            "groupName": "Orders",
+            "path": "api/Orders/{id}",
+            "method": "PUT",
+            "summary": "修改订单",
+            "produces": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+            "parameters": [
+                {
+                    "name": "id",
+                    "summary": "",
+                    "type": {
+                        "name": "String",
+                        "format": "uuid"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                },
+                {
+                    "name": "order",
+                    "summary": "",
+                    "type": {
+                        "name": "Object",
+                        "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Order"
+                    },
+                    "source": "FromBody",
+                    "required": true
+                }
+            ],
+            "responses": [
+                {
+                    "statusCode": 200,
+                    "type": { "name": "" }
+                }
+            ]
+        },
+        {
+            "groupName": "Orders",
+            "path": "api/Orders/{id}",
+            "method": "DELETE",
+            "summary": "删除订单",
+            "produces": [],
+            "parameters": [
+                {
+                    "name": "id",
+                    "summary": "订单ID",
+                    "type": {
+                        "name": "String",
+                        "format": "uuid"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                }
+            ],
+            "responses": [
+                {
+                    "statusCode": 200,
+                    "type": { "name": "" }
+                }
+            ]
+        },
+        {
+            "groupName": "Orders",
+            "path": "api/Orders/{pageNumber}/{pageSize}?Serial={Serial}",
+            "method": "GET",
+            "summary": "获取订单列表",
+            "produces": [],
+            "parameters": [
+                {
+                    "name": "pageNumber",
+                    "summary": "页码",
+                    "type": {
+                        "name": "Int32",
+                        "format": "int32"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                },
+                {
+                    "name": "pageSize",
+                    "summary": "行数",
+                    "type": {
+                        "name": "Int32",
+                        "format": "int32"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                },
+                {
+                    "name": "search",
+                    "summary": "搜索条件",
+                    "type": {
+                        "name": "Object",
+                        "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.OrderSearch"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                }
+            ],
+            "responses": [
+                {
+                    "statusCode": 200,
+                    "type": {
+                        "name": "Object",
+                        "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.PagedList[Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Order]"
+                    }
+                }
+            ]
+        },
+        {
+            "groupName": "Users",
+            "path": "api/Users/{id}",
+            "method": "GET",
+            "summary": "获取指定ID的用户",
+            "produces": [],
+            "parameters": [
+                {
+                    "name": "id",
+                    "summary": "用户ID",
+                    "type": {
+                        "name": "String",
+                        "format": "uuid"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                }
+            ],
+            "responses": [
+                {
+                    "statusCode": 200,
+                    "type": {
+                        "name": "Object",
+                        "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.User"
+                    }
+                }
+            ]
+        },
+        {
+            "groupName": "Users",
+            "path": "api/Users/{pageNumber}/{pageSize}",
+            "method": "GET",
+            "summary": "获取用户列表",
+            "produces": [],
+            "parameters": [
+                {
+                    "name": "pageNumber",
+                    "summary": "页码",
+                    "type": {
+                        "name": "Int32",
+                        "format": "int32"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                },
+                {
+                    "name": "pageSize",
+                    "summary": "行数",
+                    "type": {
+                        "name": "Int32",
+                        "format": "int32"
+                    },
+                    "source": "FromUri",
+                    "required": true
+                }
+            ],
+            "responses": [
+                {
+                    "statusCode": 200,
+                    "type": {
+                        "name": "Array",
+                        "itemType": {
+                            "name": "Object",
+                            "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.User"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "definitions": [
+        {
+            "name": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Order",
+            "summary": "订单",
+            "properties": [
+                {
+                    "name": "id",
+                    "summary": "ID",
+                    "type": {
+                        "name": "String",
+                        "format": "uuid"
+                    }
+                },
+                {
+                    "name": "serial",
+                    "summary": "订单号",
+                    "type": { "name": "String" }
+                },
+                {
+                    "name": "createTime",
+                    "summary": "创建时间",
+                    "type": {
+                        "name": "String",
+                        "format": "date-time"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.OrderSearch",
+            "summary": "",
+            "properties": [
+                {
+                    "name": "serial",
+                    "summary": "",
+                    "type": { "name": "String" }
+                }
+            ]
+        },
+        {
+            "name": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.PagedList[Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Order]",
+            "summary": "",
+            "properties": [
+                {
+                    "name": "pager",
+                    "summary": "",
+                    "type": {
+                        "name": "Object",
+                        "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Pager"
+                    }
+                },
+                {
+                    "name": "list",
+                    "summary": "",
+                    "type": {
+                        "name": "Array",
+                        "itemType": {
+                            "name": "Object",
+                            "definition": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Order"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.Pager",
+            "summary": "",
+            "properties": [
+                {
+                    "name": "pageNumber",
+                    "summary": "",
+                    "type": {
+                        "name": "Int32",
+                        "format": "int32"
+                    }
+                },
+                {
+                    "name": "pageSize",
+                    "summary": "",
+                    "type": {
+                        "name": "Int32",
+                        "format": "int32"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Liyanjie.ApiExplorer.Demo.AspNet.WebApi.Models.User",
+            "summary": "用户",
+            "properties": [
+                {
+                    "name": "id",
+                    "summary": "ID",
+                    "type": {
+                        "name": "String",
+                        "format": "uuid"
+                    }
+                },
+                {
+                    "name": "username",
+                    "summary": "用户名",
+                    "type": { "name": "String" }
+                }
+            ]
+        }
+    ]
+}

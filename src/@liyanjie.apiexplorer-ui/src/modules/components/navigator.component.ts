@@ -22,7 +22,7 @@ export class NavigatorComponent implements OnInit {
 
     ngOnInit(): void {
         this.requestService
-            .get("/init.json?v=1.0.0")
+            .get("./init.json?v=1.0.1")
             .subscribe(response => {
                 this.docUrls = response.json() as models.DocUrl[];
             }, error => {

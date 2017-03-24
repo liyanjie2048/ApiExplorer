@@ -2,7 +2,7 @@
     "title": "Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc",
     "description": "Api查看器（Generator）",
     "copyright": "© Liyanjie.me",
-    "version": "1.0.0-*",
+    "version": "1.0.1-*",
     "authors": [ "liyanjie8712@outlook.com" ],
 
     "dependencies": {

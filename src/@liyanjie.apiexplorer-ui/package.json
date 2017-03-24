@@ -68,7 +68,7 @@
         "rollup": "rollup -c ./rollup.config.js",
         "rollup-angular": "rollup -c ./rollup.config.angular.js",
         "rollup:w": "rollup -c --watch",
-        "start": "npm run rollup-angular && concurrently \"npm run gulp\" \"npm run rollup:w\" \"npm run lite\""
+        "start": "concurrently \"npm run gulp\" \"npm run rollup:w\" \"npm run lite\""
     },
-    "version": "1.0.0"
+    "version": "1.0.1"
 }

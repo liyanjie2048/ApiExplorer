@@ -13,7 +13,7 @@ var
     minifyHtml = plugins.minifyHtml;
 
 gulp.task('clean', function () {
-    del(['dist/css', 'dist/js', 'dist']);
+    del(['dist']);
 });
 gulp.task('copy', function () {
     gulp.src('./node_modules/font-awesome/fonts/*.*')
@@ -26,6 +26,10 @@ gulp.task('copy', function () {
         .pipe(rename({ suffix: '.min' }))
         .pipe(minifyJs())
         .pipe(gulp.dest('./dist/js'));
+    gulp.src('src/init.json')
+        .pipe(gulp.dest('./dist'));
+    gulp.src('src/doc.json')
+        .pipe(gulp.dest('./dist'));
 });
 gulp.task('build:css', function () {
     return gulp.src('./src/styles/*.scss')

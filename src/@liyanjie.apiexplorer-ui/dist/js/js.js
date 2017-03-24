@@ -3977,7 +3977,6 @@ var __extends = (this && this.__extends) || (function () {
         __metadata("design:paramtypes", [typeof (_a = typeof _angular_http.Http !== "undefined" && _angular_http.Http) === "function" && _a || Object])
     ], RequestService);
     var _a;
-    //# sourceMappingURL=services.js.map
     var services = Object.freeze({
         get RequestService() { return RequestService; }
     });
@@ -4000,10 +3999,9 @@ var __extends = (this && this.__extends) || (function () {
         _angular_core.Component({
             //
             selector: "index",
-            template: "<header><div class=\"content-wrapper\"><div><a href=\"http://liyanjie.me\"><b>ApiExplorer</b> 1.0.0 by liyanjie.me</a></div><navigator #navigator></navigator></div></header><section><div class=\"content-wrapper\"><header><info [info]=\"main.info\" #info></info><section><span class=\"day0\">1\u5929\u5185</span> <span class=\"day1\">2\u5929\u5185</span> <span class=\"day2\">3\u5929\u5185</span> <span class=\"week0\">1\u5468\u5185</span> <span class=\"week1\">2\u5468\u5185</span> <span class=\"month0\">1\u6708\u5185</span> <span class=\"month1\">2\u6708\u5185</span> <span class=\"year0\">1\u5E74\u5185</span> <span class=\"years\">1\u5E74\u524D</span></section></header><section [ngClass]=\"{testing:section.testing}\" #section><main [section]=\"section\" [docUrl]=\"navigator.docUrl\" [setParameterValue]=\"test.setParameterValue\" #main></main><test [section]=\"section\" [basePath]=\"main.basePath||'/'\" [resource]=\"main.resource\" [headers]=\"main.headers\" #test></test></section></div></section>"
+            template: "<header><div class=\"content-wrapper\"><div><a href=\"http://liyanjie.me\"><b>ApiExplorer</b> by liyanjie.me</a></div><navigator #navigator></navigator></div></header><section><div class=\"content-wrapper\"><header><info [info]=\"main.info\" #info></info><section><span class=\"day0\">1\u5929\u5185</span> <span class=\"day1\">2\u5929\u5185</span> <span class=\"day2\">3\u5929\u5185</span> <span class=\"week0\">1\u5468\u5185</span> <span class=\"week1\">2\u5468\u5185</span> <span class=\"month0\">1\u6708\u5185</span> <span class=\"month1\">2\u6708\u5185</span> <span class=\"year0\">1\u5E74\u5185</span> <span class=\"years\">1\u5E74\u524D</span></section></header><section [ngClass]=\"{testing:section.testing}\" #section><main [section]=\"section\" [docUrl]=\"navigator.docUrl\" [setParameterValue]=\"test.setParameterValue\" #main></main><test [section]=\"section\" [basePath]=\"main.basePath||'/'\" [resource]=\"main.resource\" [headers]=\"main.headers\" #test></test></section></div></section>"
         })
     ], IndexComponent);
-    //# sourceMappingURL=index.component.js.map
     var __extends$14 = (undefined && undefined.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -4458,19 +4456,16 @@ var __extends = (this && this.__extends) || (function () {
         }
         return KeyValuePair;
     }());
-    //# sourceMappingURL=keyValuePair`2.model.js.map
     var NameValueCollection = (function () {
         function NameValueCollection() {
         }
         return NameValueCollection;
     }());
-    //# sourceMappingURL=nameValueCollection`1.model.js.map
     var GroupedList = (function () {
         function GroupedList() {
         }
         return GroupedList;
     }());
-    //# sourceMappingURL=groupedList`1.model.js.map
     var ApiBind = (function () {
         function ApiBind() {
         }
@@ -4526,8 +4521,6 @@ var __extends = (this && this.__extends) || (function () {
         }
         return DocUrl;
     }());
-    //# sourceMappingURL=apiModels.model.js.map
-    //# sourceMappingURL=models.js.map
     var models = Object.freeze({
         KeyValuePair: KeyValuePair,
         NameValueCollection: NameValueCollection,
@@ -4571,7 +4564,7 @@ var __extends = (this && this.__extends) || (function () {
         NavigatorComponent.prototype.ngOnInit = function () {
             var _this = this;
             this.requestService
-                .get("/init.json?v=1.0.0")
+                .get("./init.json?v=1.0.1")
                 .subscribe(function (response) {
                 _this.docUrls = response.json();
             }, function (error) {
@@ -4597,7 +4590,6 @@ var __extends = (this && this.__extends) || (function () {
         __metadata$1("design:paramtypes", [typeof (_a$1 = (typeof services !== "undefined" && services).RequestService) === "function" && _a$1 || Object])
     ], NavigatorComponent);
     var _a$1;
-    //# sourceMappingURL=navigator.component.js.map
     var __decorate$4 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
@@ -4639,7 +4631,6 @@ var __extends = (this && this.__extends) || (function () {
     ], InfoComponent);
     var _a$2;
     var _b;
-    //# sourceMappingURL=info.component.js.map
     var __decorate$5 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
@@ -4776,7 +4767,6 @@ var __extends = (this && this.__extends) || (function () {
     var _b$1;
     var _c;
     var _d;
-    //# sourceMappingURL=main.component.js.map
     var __decorate$6 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
@@ -4854,7 +4844,6 @@ var __extends = (this && this.__extends) || (function () {
     ], DefinitionComponent);
     var _a$4;
     var _b$2;
-    //# sourceMappingURL=definition.component.js.map
     var __decorate$7 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
@@ -4977,7 +4966,6 @@ var __extends = (this && this.__extends) || (function () {
         })
     ], ExampleComponent);
     var _a$5;
-    //# sourceMappingURL=example.component.js.map
     var __decorate$8 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
@@ -5166,8 +5154,6 @@ var __extends = (this && this.__extends) || (function () {
     ], TestComponent);
     var _a$6;
     var _b$3;
-    //# sourceMappingURL=test.component.js.map
-    //# sourceMappingURL=components.js.map
     var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
@@ -5212,11 +5198,9 @@ var __extends = (this && this.__extends) || (function () {
             ]
         })
     ], Module);
-    //# sourceMappingURL=module.js.map
     _angular_core.enableProdMode();
     _angular_platformBrowserDynamic.platformBrowserDynamic()
         .bootstrapModule(Module)
         .catch(function (err) { return console.log(err); });
-    //# sourceMappingURL=main.js.map
 }(angular._angular_core, angular._angular_platformBrowserDynamic, angular._angular_common, angular._angular_platformBrowser, angular._angular_http));
 //# sourceMappingURL=js.js.map

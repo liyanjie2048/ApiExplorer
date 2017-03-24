@@ -102,7 +102,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
                 .Select(_ => new ApiParameter
                 {
                     Name = _.Name,
-                    Summary = xmlDocmentationReader.GetSummary(methodInfo, _.Name),
+                    Summary = xmlDocmentationReader.GetSummary(methodInfo, _.Name) ?? xmlDocmentationReader.GetSummary(_.ModelMetadata.ContainerType.GetProperty(_.Name)),
                     Type = typeRegister.RegisterType(_.Type),
                     BindInclude = parameters.FirstOrDefault(__ => __.Name == _.Name)?.GetCustomAttribute<BindAttribute>()?.Include?.GetBind(toCamelCase),
                     Source = _.Source.Id,
