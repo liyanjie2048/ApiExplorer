@@ -5,7 +5,6 @@ using System.Reflection;
 using Liyanjie.ApiExplorer.Generator.Extensions;
 using Liyanjie.ApiExplorer.Generator.Interfaces;
 using Liyanjie.ApiExplorer.Generator.Models;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -16,6 +15,12 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
 {
     internal class ApiResolver : IApiResolver
     {
+        readonly IApiDescriptionGroupCollectionProvider apiDescriptionGroupCollectionProvider;
+        readonly ApiExplorerGeneratorOptions options;
+        readonly ITypeRegister typeRegister;
+        readonly IXmlDocmentationReader xmlDocmentationReader;
+        readonly bool toCamelCase;
+
         public ApiResolver(IApiDescriptionGroupCollectionProvider apiDescriptionGroupCollectionProvider, IOptions<MvcJsonOptions> mvcJsonOptions, IOptions<ApiExplorerGeneratorOptions> options, ITypeRegister typeRegister, IXmlDocmentationReader xmlDocmentationReader)
         {
             this.apiDescriptionGroupCollectionProvider = apiDescriptionGroupCollectionProvider;
@@ -24,16 +29,6 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
             this.typeRegister = typeRegister;
             this.xmlDocmentationReader = xmlDocmentationReader;
         }
-
-        private readonly IApiDescriptionGroupCollectionProvider apiDescriptionGroupCollectionProvider;
-
-        private readonly ApiExplorerGeneratorOptions options;
-
-        private readonly ITypeRegister typeRegister;
-
-        private readonly IXmlDocmentationReader xmlDocmentationReader;
-
-        private readonly bool toCamelCase;
 
         public ApiDocument Create(string version, string basePath)
         {
@@ -54,7 +49,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
             };
         }
 
-        private IList<ApiHeader> getHeaders(IEnumerable<KeyValuePair<string, string>> globalHeaders)
+        IList<ApiHeader> getHeaders(IEnumerable<KeyValuePair<string, string>> globalHeaders)
         {
             return globalHeaders?
                 .GroupBy(_ => _.Key)
@@ -66,7 +61,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
                 .ToList();
         }
 
-        private IList<ApiResource> getResources(Func<IApiDescription, bool> filter = null, Func<IApiDescription, object> order = null)
+        IList<ApiResource> getResources(Func<IApiDescription, bool> filter = null, Func<IApiDescription, object> order = null)
         {
             return apiDescriptionGroupCollectionProvider.ApiDescriptionGroups.Items
                 .SelectMany(_ => _.Items
@@ -95,14 +90,14 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
                 .ToList();
         }
 
-        private IList<ApiParameter> getParameters(IEnumerable<ApiParameterDescription> parameterDescriptions, MethodInfo methodInfo)
+        IList<ApiParameter> getParameters(IEnumerable<ApiParameterDescription> parameterDescriptions, MethodInfo methodInfo)
         {
             var parameters = methodInfo.GetParameters();
             return parameterDescriptions
                 .Select(_ => new ApiParameter
                 {
                     Name = _.Name,
-                    Summary = xmlDocmentationReader.GetSummary(methodInfo, _.Name) ?? xmlDocmentationReader.GetSummary(_.ModelMetadata.ContainerType.GetProperty(_.Name)),
+                    Summary = xmlDocmentationReader.GetSummary(methodInfo, _.Name) ?? xmlDocmentationReader.GetSummary(_.ModelMetadata.ContainerType?.GetProperty(_.Name)),
                     Type = typeRegister.RegisterType(_.Type),
                     BindInclude = parameters.FirstOrDefault(__ => __.Name == _.Name)?.GetCustomAttribute<BindAttribute>()?.Include?.GetBind(toCamelCase),
                     Source = _.Source.Id,
@@ -112,7 +107,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
                 .ToList();
         }
 
-        private IList<ApiResponse> getResponses(IEnumerable<ApiResponseType> supportedResponseTypes, MethodInfo methodInfo)
+        IList<ApiResponse> getResponses(IEnumerable<ApiResponseType> supportedResponseTypes, MethodInfo methodInfo)
         {
             var liyanjieProducesResponseTypeAttributes = methodInfo.GetCustomAttributes<LiyanjieProducesResponseTypeAttribute>(true);
             return supportedResponseTypes

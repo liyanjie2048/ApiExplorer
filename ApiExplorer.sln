@@ -1,0 +1,166 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A9B178EB-C76C-4D56-B211-DA44C7E74F5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA8C4E53-5983-49B3-AB88-D4D03E8AD30E}"
+	ProjectSection(SolutionItems) = preProject
+		.tfignore = .tfignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{B0DC7E48-0B69-4862-BD2F-AB9A5F12E6B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.AspNetCore.Mvc", "src\Liyanjie.ApiExplorer.AspNetCore.Mvc\Liyanjie.ApiExplorer.AspNetCore.Mvc.csproj", "{7009954C-B364-4DD2-A88F-F21C9E7ED88A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc", "src\Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc\Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.csproj", "{195D047E-4D36-4902-AB01-4207257F9AB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.Extensions.AspNetCore.Mvc", "src\Liyanjie.ApiExplorer.Extensions.AspNetCore.Mvc\Liyanjie.ApiExplorer.Extensions.AspNetCore.Mvc.csproj", "{19A8C62B-83F5-491D-95A5-319CAB8DC16D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "@liyanjie.apiexplorer-ui", "src\@liyanjie.apiexplorer-ui\@liyanjie.apiexplorer-ui.csproj", "{E054484B-E23C-423B-8179-8AB2DAC05A42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.UI", "src\Liyanjie.ApiExplorer.UI\Liyanjie.ApiExplorer.UI.csproj", "{194656ED-9F99-4D33-8DD1-2336680DC590}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.UI.AspNetCore", "src\Liyanjie.ApiExplorer.UI.AspNetCore\Liyanjie.ApiExplorer.UI.AspNetCore.csproj", "{4AC75C70-A895-4732-9DB3-449B6817D9E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.Generator.AspNet.WebApi", "src\Liyanjie.ApiExplorer.Generator.AspNet.WebApi\Liyanjie.ApiExplorer.Generator.AspNet.WebApi.csproj", "{0CAC0F57-1A37-4D48-B562-272ADED13774}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.Generator.Abstract", "src\Liyanjie.ApiExplorer.Generator.Abstract\Liyanjie.ApiExplorer.Generator.Abstract.csproj", "{BA99CFC7-6771-433B-BD5D-33C0568E83C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.UI.AspNet", "src\Liyanjie.ApiExplorer.UI.AspNet\Liyanjie.ApiExplorer.UI.AspNet.csproj", "{40BD4B5B-0EB8-40D7-B512-529833A94B2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.AspNet.WebApi", "src\Liyanjie.ApiExplorer.AspNet.WebApi\Liyanjie.ApiExplorer.AspNet.WebApi.csproj", "{21E7A3D6-CB0B-4798-9A96-BFBB6BBD4D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc", "sample\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc.csproj", "{A1A622C7-7643-4016-A2D9-B248F7D74D51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liyanjie.ApiExplorer.Sample.AspNet.WebApi", "sample\Liyanjie.ApiExplorer.Sample.AspNet.WebApi\Liyanjie.ApiExplorer.Sample.AspNet.WebApi.csproj", "{AA1394CF-76BF-433B-9167-07BAC68B3AF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7009954C-B364-4DD2-A88F-F21C9E7ED88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7009954C-B364-4DD2-A88F-F21C9E7ED88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7009954C-B364-4DD2-A88F-F21C9E7ED88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7009954C-B364-4DD2-A88F-F21C9E7ED88A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{195D047E-4D36-4902-AB01-4207257F9AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195D047E-4D36-4902-AB01-4207257F9AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195D047E-4D36-4902-AB01-4207257F9AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195D047E-4D36-4902-AB01-4207257F9AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A8C62B-83F5-491D-95A5-319CAB8DC16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A8C62B-83F5-491D-95A5-319CAB8DC16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A8C62B-83F5-491D-95A5-319CAB8DC16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A8C62B-83F5-491D-95A5-319CAB8DC16D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E054484B-E23C-423B-8179-8AB2DAC05A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E054484B-E23C-423B-8179-8AB2DAC05A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E054484B-E23C-423B-8179-8AB2DAC05A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E054484B-E23C-423B-8179-8AB2DAC05A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{194656ED-9F99-4D33-8DD1-2336680DC590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194656ED-9F99-4D33-8DD1-2336680DC590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194656ED-9F99-4D33-8DD1-2336680DC590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194656ED-9F99-4D33-8DD1-2336680DC590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC75C70-A895-4732-9DB3-449B6817D9E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC75C70-A895-4732-9DB3-449B6817D9E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC75C70-A895-4732-9DB3-449B6817D9E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC75C70-A895-4732-9DB3-449B6817D9E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CAC0F57-1A37-4D48-B562-272ADED13774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CAC0F57-1A37-4D48-B562-272ADED13774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CAC0F57-1A37-4D48-B562-272ADED13774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CAC0F57-1A37-4D48-B562-272ADED13774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA99CFC7-6771-433B-BD5D-33C0568E83C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA99CFC7-6771-433B-BD5D-33C0568E83C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA99CFC7-6771-433B-BD5D-33C0568E83C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA99CFC7-6771-433B-BD5D-33C0568E83C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40BD4B5B-0EB8-40D7-B512-529833A94B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40BD4B5B-0EB8-40D7-B512-529833A94B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40BD4B5B-0EB8-40D7-B512-529833A94B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40BD4B5B-0EB8-40D7-B512-529833A94B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E7A3D6-CB0B-4798-9A96-BFBB6BBD4D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E7A3D6-CB0B-4798-9A96-BFBB6BBD4D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E7A3D6-CB0B-4798-9A96-BFBB6BBD4D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E7A3D6-CB0B-4798-9A96-BFBB6BBD4D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1A622C7-7643-4016-A2D9-B248F7D74D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1A622C7-7643-4016-A2D9-B248F7D74D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1A622C7-7643-4016-A2D9-B248F7D74D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1A622C7-7643-4016-A2D9-B248F7D74D51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA1394CF-76BF-433B-9167-07BAC68B3AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA1394CF-76BF-433B-9167-07BAC68B3AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA1394CF-76BF-433B-9167-07BAC68B3AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA1394CF-76BF-433B-9167-07BAC68B3AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7009954C-B364-4DD2-A88F-F21C9E7ED88A} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{195D047E-4D36-4902-AB01-4207257F9AB7} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{19A8C62B-83F5-491D-95A5-319CAB8DC16D} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{E054484B-E23C-423B-8179-8AB2DAC05A42} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{194656ED-9F99-4D33-8DD1-2336680DC590} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{4AC75C70-A895-4732-9DB3-449B6817D9E3} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{0CAC0F57-1A37-4D48-B562-272ADED13774} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{BA99CFC7-6771-433B-BD5D-33C0568E83C6} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{40BD4B5B-0EB8-40D7-B512-529833A94B2C} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{21E7A3D6-CB0B-4798-9A96-BFBB6BBD4D5A} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
+		{A1A622C7-7643-4016-A2D9-B248F7D74D51} = {B0DC7E48-0B69-4862-BD2F-AB9A5F12E6B4}
+		{AA1394CF-76BF-433B-9167-07BAC68B3AF9} = {B0DC7E48-0B69-4862-BD2F-AB9A5F12E6B4}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 13
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://liyanjie8712.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = src\\Liyanjie.ApiExplorer.UI\\Liyanjie.ApiExplorer.UI.csproj
+		SccProjectTopLevelParentUniqueName1 = ApiExplorer.sln
+		SccProjectName1 = src/Liyanjie.ApiExplorer.UI
+		SccLocalPath1 = src\\Liyanjie.ApiExplorer.UI
+		SccProjectUniqueName2 = src\\Liyanjie.ApiExplorer.UI.AspNetCore\\Liyanjie.ApiExplorer.UI.AspNetCore.csproj
+		SccProjectTopLevelParentUniqueName2 = ApiExplorer.sln
+		SccProjectName2 = src/Liyanjie.ApiExplorer.UI.AspNetCore
+		SccLocalPath2 = src\\Liyanjie.ApiExplorer.UI.AspNetCore
+		SccProjectUniqueName3 = src\\Liyanjie.ApiExplorer.Extensions.AspNetCore.Mvc\\Liyanjie.ApiExplorer.Extensions.AspNetCore.Mvc.csproj
+		SccProjectTopLevelParentUniqueName3 = ApiExplorer.sln
+		SccProjectName3 = src/Liyanjie.ApiExplorer.Extensions.AspNetCore.Mvc
+		SccLocalPath3 = src\\Liyanjie.ApiExplorer.Extensions.AspNetCore.Mvc
+		SccProjectUniqueName4 = src\\Liyanjie.ApiExplorer.Generator.Abstract\\Liyanjie.ApiExplorer.Generator.Abstract.csproj
+		SccProjectTopLevelParentUniqueName4 = ApiExplorer.sln
+		SccProjectName4 = src/Liyanjie.ApiExplorer.Generator.Abstract
+		SccLocalPath4 = src\\Liyanjie.ApiExplorer.Generator.Abstract
+		SccProjectUniqueName5 = src\\Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc\\Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.csproj
+		SccProjectTopLevelParentUniqueName5 = ApiExplorer.sln
+		SccProjectName5 = src/Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc
+		SccLocalPath5 = src\\Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc
+		SccProjectUniqueName6 = src\\Liyanjie.ApiExplorer.AspNetCore.Mvc\\Liyanjie.ApiExplorer.AspNetCore.Mvc.csproj
+		SccProjectTopLevelParentUniqueName6 = ApiExplorer.sln
+		SccProjectName6 = src/Liyanjie.ApiExplorer.AspNetCore.Mvc
+		SccLocalPath6 = src\\Liyanjie.ApiExplorer.AspNetCore.Mvc
+		SccProjectUniqueName7 = src\\@liyanjie.apiexplorer-ui\\@liyanjie.apiexplorer-ui.csproj
+		SccProjectTopLevelParentUniqueName7 = ApiExplorer.sln
+		SccProjectName7 = src/@liyanjie.apiexplorer-ui
+		SccLocalPath7 = src\\@liyanjie.apiexplorer-ui
+		SccProjectUniqueName8 = src\\Liyanjie.ApiExplorer.Generator.AspNet.WebApi\\Liyanjie.ApiExplorer.Generator.AspNet.WebApi.csproj
+		SccProjectTopLevelParentUniqueName8 = ApiExplorer.sln
+		SccProjectName8 = src/Liyanjie.ApiExplorer.Generator.AspNet.WebApi
+		SccLocalPath8 = src\\Liyanjie.ApiExplorer.Generator.AspNet.WebApi
+		SccProjectUniqueName9 = src\\Liyanjie.ApiExplorer.UI.AspNet\\Liyanjie.ApiExplorer.UI.AspNet.csproj
+		SccProjectTopLevelParentUniqueName9 = ApiExplorer.sln
+		SccProjectName9 = src/Liyanjie.ApiExplorer.UI.AspNet
+		SccLocalPath9 = src\\Liyanjie.ApiExplorer.UI.AspNet
+		SccProjectUniqueName10 = src\\Liyanjie.ApiExplorer.AspNet.WebApi\\Liyanjie.ApiExplorer.AspNet.WebApi.csproj
+		SccProjectTopLevelParentUniqueName10 = ApiExplorer.sln
+		SccProjectName10 = src/Liyanjie.ApiExplorer.AspNet.WebApi
+		SccLocalPath10 = src\\Liyanjie.ApiExplorer.AspNet.WebApi
+		SccProjectUniqueName11 = sample\\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc\\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc.csproj
+		SccProjectTopLevelParentUniqueName11 = ApiExplorer.sln
+		SccProjectName11 = sample/Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc
+		SccLocalPath11 = sample\\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc
+		SccProjectUniqueName12 = sample\\Liyanjie.ApiExplorer.Sample.AspNet.WebApi\\Liyanjie.ApiExplorer.Sample.AspNet.WebApi.csproj
+		SccProjectTopLevelParentUniqueName12 = ApiExplorer.sln
+		SccProjectName12 = sample/Liyanjie.ApiExplorer.Sample.AspNet.WebApi
+		SccLocalPath12 = sample\\Liyanjie.ApiExplorer.Sample.AspNet.WebApi
+	EndGlobalSection
+EndGlobal

@@ -1,18 +1,24 @@
-﻿using Liyanjie.ApiExplorer.Generator.Interfaces;
-using Liyanjie.ApiExplorer.Generator.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
+using Liyanjie.ApiExplorer.Generator.Interfaces;
+using Liyanjie.ApiExplorer.Generator.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
 {
     internal class ApiResolver : IApiResolver
     {
+        readonly IApiExplorer apiExplorer;
+        readonly ApiExplorerGeneratorOptions options;
+        readonly ITypeRegister typeRegister;
+        readonly IXmlDocmentationReader xmlDocmentationReader;
+        readonly bool toCamelCase;
+
         public ApiResolver(IApiExplorer apiExplorer, JsonSerializerSettings jsonSerializerSettings, ApiExplorerGeneratorOptions options, ITypeRegister typeRegister, IXmlDocmentationReader xmlDocmentationReader)
         {
             this.apiExplorer = apiExplorer;
@@ -21,16 +27,6 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
             this.typeRegister = typeRegister;
             this.xmlDocmentationReader = xmlDocmentationReader;
         }
-
-        private readonly IApiExplorer apiExplorer;
-
-        private readonly ApiExplorerGeneratorOptions options;
-
-        private readonly ITypeRegister typeRegister;
-
-        private readonly IXmlDocmentationReader xmlDocmentationReader;
-
-        private readonly bool toCamelCase;
 
         public ApiDocument Create(string version, string basePath)
         {
@@ -51,7 +47,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
             };
         }
 
-        private IList<ApiHeader> getHeaders(IEnumerable<KeyValuePair<string, string>> globalHeaders)
+        IList<ApiHeader> getHeaders(IEnumerable<KeyValuePair<string, string>> globalHeaders)
         {
             return globalHeaders?
                 .GroupBy(_ => _.Key)
@@ -63,7 +59,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
                 .ToList();
         }
 
-        private IList<ApiResource> getResources(Func<IApiDescription, bool> filter = null, Func<IApiDescription, object> order = null)
+        IList<ApiResource> getResources(Func<IApiDescription, bool> filter = null, Func<IApiDescription, object> order = null)
         {
             return apiExplorer.ApiDescriptions
                 .Select(__ => new ApiDescription(__))
@@ -89,9 +85,9 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
                 .ToList();
         }
 
-        private IList<ApiParameter> getParameters(IEnumerable<ApiParameterDescription> parameterDescriptions, MethodInfo methodInfo)
+        IList<ApiParameter> getParameters(IEnumerable<ApiParameterDescription> parameterDescriptions, MethodInfo methodInfo)
         {
-            var parameters = methodInfo.GetParameters();
+            //var parameters = methodInfo.GetParameters();
             return parameterDescriptions
                 .Select(_ => new ApiParameter
                 {
@@ -106,7 +102,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
                 .ToList();
         }
 
-        private IList<ApiResponse> getResponses(ResponseDescription responseDescription, MethodInfo methodInfo)
+        IList<ApiResponse> getResponses(ResponseDescription responseDescription, MethodInfo methodInfo)
         {
             return new List<ApiResponse>
             {

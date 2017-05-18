@@ -25,13 +25,10 @@ namespace Microsoft.AspNetCore.Builder
             var options = new ApiExplorerUIOptions();
             setupAction?.Invoke(options);
 
-            // Enable redirect from basePath to indexPath
             applicationBuilder.UseMiddleware<ApiExplorerUIRedirectMiddleware>(options.BaseRoute, options.IndexPath);
 
-            // Serve indexPath via middleware
             applicationBuilder.UseMiddleware<ApiExplorerUIInitJsonMIddleware>(options);
 
-            // Serve everything else via static file server
             var fileServerOptions = new FileServerOptions
             {
                 RequestPath = $"/{options.BaseRoute}",

@@ -27,31 +27,59 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
 
         /// <inheritdoc />
         public string GetSummary(Type type)
-            => getMember(type.GetAssemblyName(), type.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+        {
+            if (type == null)
+                return null;
+            return getMember(type.GetAssemblyName(), type.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+        }
 
         /// <inheritdoc />
         public string GetSummary(FieldInfo fieldInfo)
-            => getMember(fieldInfo.GetAssemblyName(), fieldInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+        {
+            if (fieldInfo == null)
+                return null;
+            return getMember(fieldInfo.GetAssemblyName(), fieldInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+        }
 
         /// <inheritdoc />
         public string GetSummary(PropertyInfo propertyInfo)
-            => getMember(propertyInfo.GetAssemblyName(), propertyInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+        {
+            if (propertyInfo == null)
+                return null;
+            return getMember(propertyInfo.GetAssemblyName(), propertyInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+        }
 
         /// <inheritdoc />
         public string GetSummary(MethodInfo methodInfo)
-            => getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+        {
+            if (methodInfo == null)
+                return null;
+            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+        }
 
         /// <inheritdoc />
         public string GetTimestamp(MethodInfo methodInfo)
-            => getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("timestamp")?.Value?.NoWrap();
+        {
+            if (methodInfo == null)
+                return null;
+            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("timestamp")?.Value?.NoWrap();
+        }
 
         /// <inheritdoc />
         public string GetSummary(MethodInfo methodInfo, string parameterName)
-            => getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("param").FirstOrDefault(__ => __.Attribute("name")?.Value == parameterName)?.Value?.NoWrap();
+        {
+            if (methodInfo == null)
+                return null;
+            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("param").FirstOrDefault(__ => __.Attribute("name")?.Value == parameterName)?.Value?.NoWrap();
+        }
 
         /// <inheritdoc />
         public string GetSummary(MethodInfo methodInfo, int responseCode)
-            => getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("response").FirstOrDefault(__ => __.Attribute("code")?.Value == responseCode.ToString())?.Value?.NoWrap();
+        {
+            if (methodInfo == null)
+                return null;
+            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("response").FirstOrDefault(__ => __.Attribute("code")?.Value == responseCode.ToString())?.Value?.NoWrap();
+        }
 
         private XElement getMember(string assembly, string memberName)
             => getMembers(assembly)?.FirstOrDefault(_ => _.Attribute("name").Value == memberName);

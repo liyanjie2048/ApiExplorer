@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworks>net45</TargetFrameworks>
+    <Description>Api查看器（Generator for AspNet.WebApi）</Description>
+    <Copyright>© Liyanjie.me</Copyright>
+    <Authors>liyanjie8712@outlook.com</Authors>
+    <Company>Liyanjie.me</Company>
+    <RepositoryUrl>https://github.com/liyanjie8712/ApiExplorer</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/liyanjie8712/ApiExplorer</PackageProjectUrl>
+    <RepositoryType>Git</RepositoryType>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net45|AnyCPU'">
+    <DocumentationFile>bin\Release\net45\Liyanjie.ApiExplorer.Generator.AspNet.WebApi.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Target Name="CopyPackage" AfterTargets="Pack">
+    <Copy SourceFiles="$(OutputPath)$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\Users\Administrator\Documents\Packages\" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Liyanjie.ApiExplorer.Generator.Abstract\Liyanjie.ApiExplorer.Generator.Abstract.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Liyanjie.TemplateMatching" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.3" />
+  </ItemGroup>
+
+</Project>
