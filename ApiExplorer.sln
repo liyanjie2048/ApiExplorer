@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A9B178EB-C76C-4D56-B211-DA44C7E74F5C}"
 EndProject
@@ -33,9 +33,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.UI.Asp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.AspNet.WebApi", "src\Liyanjie.ApiExplorer.AspNet.WebApi\Liyanjie.ApiExplorer.AspNet.WebApi.csproj", "{21E7A3D6-CB0B-4798-9A96-BFBB6BBD4D5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc", "sample\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc.csproj", "{A1A622C7-7643-4016-A2D9-B248F7D74D51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc", "sample\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc\Liyanjie.ApiExplorer.Sample.AspNetCore.Mvc.csproj", "{A1A622C7-7643-4016-A2D9-B248F7D74D51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liyanjie.ApiExplorer.Sample.AspNet.WebApi", "sample\Liyanjie.ApiExplorer.Sample.AspNet.WebApi\Liyanjie.ApiExplorer.Sample.AspNet.WebApi.csproj", "{AA1394CF-76BF-433B-9167-07BAC68B3AF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B5920EC6-C1C3-426F-8E3D-0DF07169FC9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "test\ConsoleApp1\ConsoleApp1.csproj", "{36A1EF42-FB43-4CBE-BE8A-0DE2B5C1B773}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +95,10 @@ Global
 		{AA1394CF-76BF-433B-9167-07BAC68B3AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA1394CF-76BF-433B-9167-07BAC68B3AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA1394CF-76BF-433B-9167-07BAC68B3AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A1EF42-FB43-4CBE-BE8A-0DE2B5C1B773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A1EF42-FB43-4CBE-BE8A-0DE2B5C1B773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A1EF42-FB43-4CBE-BE8A-0DE2B5C1B773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A1EF42-FB43-4CBE-BE8A-0DE2B5C1B773}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,9 +116,10 @@ Global
 		{21E7A3D6-CB0B-4798-9A96-BFBB6BBD4D5A} = {A9B178EB-C76C-4D56-B211-DA44C7E74F5C}
 		{A1A622C7-7643-4016-A2D9-B248F7D74D51} = {B0DC7E48-0B69-4862-BD2F-AB9A5F12E6B4}
 		{AA1394CF-76BF-433B-9167-07BAC68B3AF9} = {B0DC7E48-0B69-4862-BD2F-AB9A5F12E6B4}
+		{36A1EF42-FB43-4CBE-BE8A-0DE2B5C1B773} = {B5920EC6-C1C3-426F-8E3D-0DF07169FC9E}
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 13
+		SccNumberOfProjects = 14
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://liyanjie8712.visualstudio.com/
 		SccLocalPath0 = .
@@ -162,5 +171,9 @@ Global
 		SccProjectTopLevelParentUniqueName12 = ApiExplorer.sln
 		SccProjectName12 = sample/Liyanjie.ApiExplorer.Sample.AspNet.WebApi
 		SccLocalPath12 = sample\\Liyanjie.ApiExplorer.Sample.AspNet.WebApi
+		SccProjectUniqueName13 = test\\ConsoleApp1\\ConsoleApp1.csproj
+		SccProjectTopLevelParentUniqueName13 = ApiExplorer.sln
+		SccProjectName13 = test/ConsoleApp1
+		SccLocalPath13 = test\\ConsoleApp1
 	EndGlobalSection
 EndGlobal

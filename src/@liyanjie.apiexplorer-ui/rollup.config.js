@@ -1,70 +1,25 @@
-﻿import { minify as minifyHtml } from 'html-minifier';
-import sass from 'node-sass';
-import CleanCSS from 'clean-css';
-import rollupAngular from 'rollup-plugin-angular';
-import rollupAlias from 'rollup-plugin-alias';
-import rollupCleanup from 'rollup-plugin-cleanup';
-import rollupNodeResolve from 'rollup-plugin-node-resolve';
-import rollupTS from 'rollup-plugin-ts';
-import typescript from 'typescript';
+﻿import nodeResolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+//import uglify from 'rollup-plugin-uglify';
 
-const tsconfig = require('./tsconfig.json');
-
-const rollupRxjs = options => ({
-    resolveId: id => {
-        if (id.startsWith('rxjs/')) {
-            return `${__dirname}/node_modules/rxjs-es/${id.replace('rxjs/', '')}.js`;
-        }
-    }
-});
-
-const config = {
-    entry: 'src/modules/main.ts',
-    format: 'iife',
+export default {
+    entry: 'src/main.aot.js',
     dest: 'build/js.js',
     sourceMap: true,
+    sourceMapFile: 'build/js.js.mpa',
+    format: 'iife',
+    onwarn: function (warning) {
+        if (warning.code === 'THIS_IS_UNDEFIND')
+            return;
+        console.warn(warning.message);
+    },
     plugins: [
-        rollupAngular({
-            preprocessors: {
-                template: template => minifyHtml(template, {
-                    caseSensitive: true,
-                    collapseWhitespace: true,
-                    removeComments: true
-                }),
-                style: style => (new CleanCSS()).minify(sass.renderSync({ data: scss }).css).styles
-            }
-        }),
-        rollupTS({
-            typescript: typescript,
-            tsconfig: tsconfig.compilerOptions
-        }),
-        rollupRxjs(),
-        rollupAlias({ rxjs: `${__dirname}/node_modules/rxjs-es` }),
-        rollupNodeResolve({
-            module: true,
+        nodeResolve({
             jsnext: true,
-            main: true,
-            browser: true
+            module: true
         }),
-        rollupCleanup()
-    ],
-    external: [
-        '@angular/common',
-        '@angular/compiler',
-        '@angular/core',
-        '@angular/form',
-        '@angular/http',
-        '@angular/platform-browser',
-        '@angular/platform-browser-dynamic'
-    ],
-    globals: {
-        '@angular/common': 'angular._angular_common',
-        '@angular/compiler': 'angular._angular_compiler',
-        '@angular/core': 'angular._angular_core',
-        '@angular/forms': 'angular._angular_forms',
-        '@angular/http': 'angular._angular_http',
-        '@angular/platform-browser': 'angular._angular_platformBrowser',
-        '@angular/platform-browser-dynamic': 'angular._angular_platformBrowserDynamic'
-    }
+        commonjs({
+            include: 'node_modules/rxjs/**'
+        })
+    ]
 };
-export default config;

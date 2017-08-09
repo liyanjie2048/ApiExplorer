@@ -19,6 +19,7 @@
     <RepositoryType>Git</RepositoryType>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net45|AnyCPU'">
@@ -34,7 +35,24 @@
   </Target>
 
   <ItemGroup>
-    <EmbeddedResource Include="@liyanjie.apiexplorer-ui\dist\**\*.*" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\css\css.css" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\css\css.min.css" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\css\font-awesome.css" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\css\font-awesome.css.map" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\css\font-awesome.min.css" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\doc.json" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\fonts\fontawesome-webfont.eot" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\fonts\fontawesome-webfont.svg" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\fonts\fontawesome-webfont.ttf" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\fonts\fontawesome-webfont.woff" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\fonts\fontawesome-webfont.woff2" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\fonts\FontAwesome.otf" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\index.html" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\init.json" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\js\env.js" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\js\env.min.js" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\js\js.js" />
+    <EmbeddedResource Include="%40liyanjie.apiexplorer-ui\dist\js\js.min.js" />
   </ItemGroup>
-
+  
 </Project>

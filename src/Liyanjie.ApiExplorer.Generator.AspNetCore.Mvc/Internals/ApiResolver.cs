@@ -79,10 +79,11 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
                             Path = __.RelativePath,
                             Method = __.HttpMethod,
                             Summary = xmlDocmentationReader.GetSummary(controllerActionDescriptor.MethodInfo),
-                            Timestamp = xmlDocmentationReader.GetTimestamp(controllerActionDescriptor.MethodInfo),
+                            //Timestamp = xmlDocmentationReader.GetTimestamp(controllerActionDescriptor.MethodInfo),
                             Produces = __.SupportedRequestFormats.Select(___ => ___.MediaType).ToArray(),
                             Parameters = getParameters(__.ParameterDescriptions, controllerActionDescriptor.MethodInfo),
                             Responses = getResponses(__.SupportedResponseTypes, controllerActionDescriptor.MethodInfo),
+                            Changes = getChanges(controllerActionDescriptor.MethodInfo),
                             Obsolete = (controllerActionDescriptor.ControllerTypeInfo.GetCustomAttributes<ObsoleteAttribute>().Any() || controllerActionDescriptor.MethodInfo.GetCustomAttributes<ObsoleteAttribute>().Any()) ? true : (bool?)null,
                         };
                     })
@@ -97,7 +98,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
                 .Select(_ => new ApiParameter
                 {
                     Name = _.Name,
-                    Summary = xmlDocmentationReader.GetSummary(methodInfo, _.Name) ?? xmlDocmentationReader.GetSummary(_.ModelMetadata.ContainerType?.GetProperty(_.Name)),
+                    Summary = xmlDocmentationReader.GetParameter(methodInfo, _.Name) ?? xmlDocmentationReader.GetSummary(_.ModelMetadata.ContainerType?.GetProperty(_.Name)),
                     Type = typeRegister.RegisterType(_.Type),
                     BindInclude = parameters.FirstOrDefault(__ => __.Name == _.Name)?.GetCustomAttribute<BindAttribute>()?.Include?.GetBind(toCamelCase),
                     Source = _.Source.Id,
@@ -114,11 +115,25 @@ namespace Liyanjie.ApiExplorer.Generator.AspNetCore.Mvc.Internals
                 .Select(_ => new ApiResponse
                 {
                     StatusCode = _.StatusCode,
-                    Summary = xmlDocmentationReader.GetSummary(methodInfo, _.StatusCode),
+                    Summary = xmlDocmentationReader.GetResponse(methodInfo, _.StatusCode),
                     Type = typeRegister.RegisterType(_.Type),
                     BindExclude = liyanjieProducesResponseTypeAttributes.FirstOrDefault(__ => __.StatusCode == _.StatusCode)?.Excludes?.GetBind(toCamelCase),
                 })
                 .ToList();
+        }
+
+        IList<ApiChange> getChanges(MethodInfo methodInfo)
+        {
+            return xmlDocmentationReader.GetChanges(methodInfo).Select(_ =>
+            {
+                DateTime.TryParse(_.Item1, out DateTime timestamp);
+                return new ApiChange
+                {
+                    Timestamp = timestamp == DateTime.MinValue ? null : (DateTime?)timestamp,
+                    Author = _.Item2,
+                    Description = _.Item3,
+                };
+            }).ToList();
         }
     }
 }

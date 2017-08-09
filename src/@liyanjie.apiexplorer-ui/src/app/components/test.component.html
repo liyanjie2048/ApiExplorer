@@ -1,0 +1,110 @@
+﻿<section *ngIf="resource">
+    <h4>
+        【{{resource.method}}】 {{basePath}}{{resource.path}} &nbsp; <span (click)="close()">[<i class="fa fa-close"></i>]</span>
+    </h4>
+    <div class="{{resource.method}}">
+        <section>
+            <div>请求</div>
+            <table class="list">
+                <thead>
+                    <tr>
+                        <td class="name"></td>
+                        <td class="content"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Content-Type</td>
+                        <td>
+                            <select [(ngModel)]="header['Content-Type']">
+                                <option value="{{produce}}" [selected]="i==0" *ngFor="let produce of resource.produces;let i=index">{{produce}}</option>
+                                <option value="application/json" *ngIf="!resource.produces||resource.produces.length==0">application/json</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr *ngFor="let item of headers">
+                        <td>{{item.name}}</td>
+                        <td>
+                            <input placeholder="Header parameter." value="{{values(item.values)}}" [(ngModel)]="header[item.name]">
+                        </td>
+                    </tr>
+                    <tr *ngFor="let item of resource.parameters">
+                        <td>{{item.name}}</td>
+                        <td>
+                            <input placeholder="{{item.source}} parameter." *ngIf="item.source=='Header'" [(ngModel)]="header[item.name]" [required]="item.required">
+                            <input placeholder="{{item.source}} parameter." *ngIf="item.source=='Path'||item.source=='FromUri'" [(ngModel)]="path[item.name]" [required]="item.required">
+                            <input placeholder="{{item.source}} parameter." *ngIf="item.source=='Query'" [(ngModel)]="query[item.name]" [required]="item.required">
+                            <textarea placeholder="{{item.source}} parameter." *ngIf="item.source=='Body'||item.source=='FromBody'" [(ngModel)]="body[item.name]"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <button type="button" (click)="submit()" [disabled]="submitting">
+                <ng-template [ngIf]="submitting">
+                    <i class="fa fa-gear fa-spin"></i>
+                    <span>提交中…</span>
+                </ng-template>
+                <ng-template [ngIf]="!submitting">
+                    <i class="fa fa-play-circle"></i>
+                    <span>提交测试</span>
+                </ng-template>
+            </button>
+            <span style="float:right;" *ngIf="consumingTime!=null"><i class="fa fa-hourglass-end"></i>：{{consumingTime|number:'1.2-2'}} ms</span>
+        </section>
+        <section>
+            <div>响应</div>
+            <table class="list">
+                <thead>
+                    <tr>
+                        <td class="name"></td>
+                        <td class="content"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Url</td>
+                        <td class="url">
+                            <code>
+<pre>
+{{requestUrl}}
+</pre>
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Http Code</td>
+                        <td>
+                            <code>
+<pre>
+{{responseCode}}
+</pre>
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Response Body</td>
+                        <td>
+                            <code>
+<pre>
+{{responseBody}}
+</pre>
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Response Headers</td>
+                        <td>
+                            <code>
+<pre>
+{{responseHeaders}}
+</pre>
+                            </code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</section>

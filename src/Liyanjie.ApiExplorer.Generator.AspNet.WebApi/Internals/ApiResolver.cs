@@ -75,10 +75,11 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
                         Path = __.RelativePath,
                         Method = __.HttpMethod.Method,
                         Summary = xmlDocmentationReader.GetSummary(reflectedActionDescriptor.MethodInfo),
-                        Timestamp = xmlDocmentationReader.GetTimestamp(reflectedActionDescriptor.MethodInfo),
+                        //Timestamp = xmlDocmentationReader.GetTimestamp(reflectedActionDescriptor.MethodInfo),
                         Produces = __.SupportedRequestBodyFormatters.SelectMany(___ => ___.SupportedMediaTypes.Select(____ => ____.MediaType)).ToArray(),
                         Parameters = getParameters(__.ParameterDescriptions, reflectedActionDescriptor.MethodInfo),
                         Responses = getResponses(__.ResponseDescription, reflectedActionDescriptor.MethodInfo),
+                        Changes = getChanges(reflectedActionDescriptor.MethodInfo),
                         Obsolete = (__.ActionDescriptor.ControllerDescriptor.GetCustomAttributes<ObsoleteAttribute>().Any() || __.ActionDescriptor.GetCustomAttributes<ObsoleteAttribute>().Any()) ? true : (bool?)null,
                     };
                 })
@@ -92,7 +93,7 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
                 .Select(_ => new ApiParameter
                 {
                     Name = _.ParameterDescriptor.ParameterName,
-                    Summary = xmlDocmentationReader.GetSummary(methodInfo, _.Name),
+                    Summary = xmlDocmentationReader.GetParameter(methodInfo, _.Name),
                     Type = typeRegister.RegisterType(_.ParameterDescriptor.ParameterType),
                     //BindInclude = parameters.FirstOrDefault(__ => __.Name == _.Name)?.GetCustomAttribute<Binding>()?.Include?.GetBind(toCamelCase),
                     Source = _.Source.ToString(),
@@ -113,6 +114,20 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
                     Type = typeRegister.RegisterType(responseDescription.ResponseType)
                 }
             };
+        }
+
+        IList<ApiChange> getChanges(MethodInfo methodInfo)
+        {
+            return xmlDocmentationReader.GetChanges(methodInfo).Select(_ =>
+            {
+                DateTime.TryParse(_.Item1, out DateTime timestamp);
+                return new ApiChange
+                {
+                    Timestamp = timestamp == DateTime.MinValue ? null : (DateTime?)timestamp,
+                    Author = _.Item2,
+                    Description = _.Item3,
+                };
+            }).ToList();
         }
     }
 }

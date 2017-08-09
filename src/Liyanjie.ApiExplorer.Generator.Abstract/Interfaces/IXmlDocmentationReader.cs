@@ -16,7 +16,7 @@ namespace Liyanjie.ApiExplorer.Generator.Interfaces
         string GetSummary(Type type);
 
         /// <summary>
-        /// 获取Type的Summary
+        /// 获取FieldInfo的Summary
         /// </summary>
         /// <param name="fieldInfo"></param>
         /// <returns></returns>
@@ -36,12 +36,12 @@ namespace Liyanjie.ApiExplorer.Generator.Interfaces
         /// <returns></returns>
         string GetSummary(MethodInfo methodInfo);
 
-        /// <summary>
-        /// 获取MethodInfo的Timestamp
-        /// </summary>
-        /// <param name="methodInfo"></param>
-        /// <returns></returns>
-        string GetTimestamp(MethodInfo methodInfo);
+        ///// <summary>
+        ///// 获取MethodInfo的Timestamp
+        ///// </summary>
+        ///// <param name="methodInfo"></param>
+        ///// <returns></returns>
+        //string GetTimestamp(MethodInfo methodInfo);
 
         /// <summary>
         /// 获取Parameter的Summary
@@ -49,7 +49,7 @@ namespace Liyanjie.ApiExplorer.Generator.Interfaces
         /// <param name="methodInfo"></param>
         /// <param name="parameterName"></param>
         /// <returns></returns>
-        string GetSummary(MethodInfo methodInfo, string parameterName);
+        string GetParameter(MethodInfo methodInfo, string parameterName);
 
         /// <summary>
         /// 获取Response的Summary
@@ -57,6 +57,13 @@ namespace Liyanjie.ApiExplorer.Generator.Interfaces
         /// <param name="methodInfo"></param>
         /// <param name="responseCode"></param>
         /// <returns></returns>
-        string GetSummary(MethodInfo methodInfo, int responseCode);
+        string GetResponse(MethodInfo methodInfo, int responseCode);
+
+        /// <summary>
+        /// 获取Change的Summary
+        /// </summary>
+        /// <param name="methodInfo"></param>
+        /// <returns></returns>
+        Tuple<string, string, string>[] GetChanges(MethodInfo methodInfo);
     }
 }

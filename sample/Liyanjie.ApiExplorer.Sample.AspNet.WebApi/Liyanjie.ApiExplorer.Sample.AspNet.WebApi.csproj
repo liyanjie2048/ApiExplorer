@@ -48,20 +48,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Liyanjie.ApiExplorer.AspNet.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Liyanjie.ApiExplorer.AspNet.WebApi.1.0.0\lib\net45\Liyanjie.ApiExplorer.AspNet.WebApi.dll</HintPath>
+    <Reference Include="Liyanjie.ApiExplorer.AspNet.WebApi, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Liyanjie.ApiExplorer.AspNet.WebApi.1.1.0\lib\net45\Liyanjie.ApiExplorer.AspNet.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="Liyanjie.ApiExplorer.Generator.Abstract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Liyanjie.ApiExplorer.Generator.Abstract.1.0.0\lib\net45\Liyanjie.ApiExplorer.Generator.Abstract.dll</HintPath>
+    <Reference Include="Liyanjie.ApiExplorer.Generator.Abstract, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Liyanjie.ApiExplorer.Generator.Abstract.1.1.0\lib\net45\Liyanjie.ApiExplorer.Generator.Abstract.dll</HintPath>
     </Reference>
-    <Reference Include="Liyanjie.ApiExplorer.Generator.AspNet.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Liyanjie.ApiExplorer.Generator.AspNet.WebApi.1.0.0\lib\net45\Liyanjie.ApiExplorer.Generator.AspNet.WebApi.dll</HintPath>
+    <Reference Include="Liyanjie.ApiExplorer.Generator.AspNet.WebApi, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Liyanjie.ApiExplorer.Generator.AspNet.WebApi.1.1.0\lib\net45\Liyanjie.ApiExplorer.Generator.AspNet.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="Liyanjie.ApiExplorer.UI, Version=1.0.1.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Liyanjie.ApiExplorer.UI.1.0.1\lib\net45\Liyanjie.ApiExplorer.UI.dll</HintPath>
+    <Reference Include="Liyanjie.ApiExplorer.UI, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Liyanjie.ApiExplorer.UI.1.1.0\lib\net45\Liyanjie.ApiExplorer.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Liyanjie.ApiExplorer.UI.AspNet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Liyanjie.ApiExplorer.UI.AspNet.1.0.0\lib\net45\Liyanjie.ApiExplorer.UI.AspNet.dll</HintPath>
+    <Reference Include="Liyanjie.ApiExplorer.UI.AspNet, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Liyanjie.ApiExplorer.UI.AspNet.1.1.0\lib\net45\Liyanjie.ApiExplorer.UI.AspNet.dll</HintPath>
     </Reference>
     <Reference Include="Liyanjie.TemplateMatching, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a12b694cb7781f95, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Liyanjie.TemplateMatching.1.0.0\lib\net45\Liyanjie.TemplateMatching.dll</HintPath>
@@ -71,7 +71,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

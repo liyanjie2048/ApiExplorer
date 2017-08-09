@@ -1,0 +1,7 @@
+﻿<ng-template [ngIf]="docUrls">
+    <input value="{{select.value}}" readonly="readonly" />
+    <select name="url" #select>
+        <option value="{{docUrl.url}}" [selected]="docUrl.default" *ngFor="let docUrl of docUrls">{{docUrl.url}}</option>
+    </select>
+    <button type="button" (click)="export(select.value)">Explor</button>
+</ng-template>

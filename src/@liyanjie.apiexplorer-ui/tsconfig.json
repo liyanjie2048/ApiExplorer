@@ -1,21 +1,16 @@
 {
     "compilerOptions": {
-        "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "module": "commonjs",
         "moduleResolution": "node",
-        "noImplicitAny": false,
-        "removeComments": false,
+        "noImplicitAny": true,
         "sourceMap": true,
-        "target": "es5",
-        "outDir": "build",
-        "types": [
-            "core-js",
-            "jasmine",
-            "node"
-        ]
-    },
-    "exclude": [
-        "node_modules"
-    ]
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "es5"
+    }
 }

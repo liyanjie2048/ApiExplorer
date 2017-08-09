@@ -1,6 +1,6 @@
-[
+﻿[
     {
-        "url": "./doc.json",
+        "url": "doc.json",
         "default": true
     }
 ]

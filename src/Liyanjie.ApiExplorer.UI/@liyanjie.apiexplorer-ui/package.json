@@ -1,61 +1,68 @@
 {
-  "author": {
-    "email": "liyanjie8712@outlook.com",
-    "name": "Li Yanjie",
-    "url": "http://liyanjie.me"
-  },
-  "description": "User Interface of ApiExplorer",
-  "dependencies": {
-    "@angular/common": "*",
-    "@angular/compiler": "*",
-    "@angular/core": "*",
-    "@angular/forms": "*",
-    "@angular/http": "*",
-    "@angular/platform-browser": "*",
-    "@angular/platform-browser-dynamic": "*",
-    "@angular/router": "*",
-    "@liyanjie/jslinq": "https://www.myget.org/F/liyanjie/npm/@liyanjie/jslinq/-/@liyanjie/jslinq-1.0.7.tgz",
-    "core-js": "*",
-    "font-awesome": "*",
-    "reflect-metadata": "*",
-    "rxjs": "*",
-    "zone.js": "*"
-  },
-  "devDependencies": {
-    "@types/core-js": "*",
-    "@types/jasmine": "*",
-    "@types/node": "*",
-    "concurrently": "*",
-    "html-minifier": "*",
-    "lite-server": "*",
-    "node-sass": "*",
-    "rollup": "*",
-    "rollup-plugin-alias": "*",
-    "rollup-plugin-angular": "*",
-    "rollup-plugin-cleanup": "*",
-    "rollup-plugin-node-resolve": "*",
-    "rollup-plugin-scss": "*",
-    "rollup-plugin-ts": "*",
-    "rxjs-es": "*",
-    "systemjs": "*",
-    "typescript": "*"
-  },
-  "files": [
-    "dist/**/*.*",
-    "package.json",
-    "README.md"
-  ],
-  "name": "@liyanjie/apiexplorer-ui",
-  "keywords": [
-    "ApiExplorer",
-    "ApiExplorerUI"
-  ],
-  "private": true,
-  "scripts": {
-    "lite": "lite-server",
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\"",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
-  },
-  "version": "1.1.1"
+    "author": {
+        "email": "liyanjie8712@outlook.com",
+        "name": "Li Yanjie",
+        "url": "http://liyanjie.me"
+    },
+    "description": "User Interface of ApiExplorer",
+    "dependencies": {
+        "@angular/common": "4.3.1",
+        "@angular/compiler": "4.3.1",
+        "@angular/compiler-cli": "^4.3.1",
+        "@angular/core": "4.3.1",
+        "@angular/forms": "4.3.1",
+        "@angular/http": "4.3.1",
+        "@angular/platform-browser": "4.3.1",
+        "@angular/platform-browser-dynamic": "4.3.1",
+        "@angular/platform-server": "^4.3.1",
+        "@liyanjie/jslinq": "https://www.myget.org/F/liyanjie/npm/@liyanjie/jslinq/-/@liyanjie/jslinq-1.0.0.tgz",
+        "core-js": "^2.4.1",
+        "font-awesome": "*",
+        "rxjs": "5.0.1",
+        "zone.js": "^0.8.4"
+    },
+    "devDependencies": {
+        "@types/core-js": "*",
+        "@types/jasmine": "*",
+        "@types/node": "*",
+        "concurrently": "^3.5.0",
+        "gulp": "^3.9.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-load-plugins": "^1.5.0",
+        "gulp-minify-css": "^1.2.4",
+        "gulp-minify-html": "^1.0.6",
+        "gulp-rename": "^1.2.2",
+        "gulp-uglify": "^3.0.0",
+        "lite-server": "^2.3.0",
+        "plugin-typescript": "^7.0.6",
+        "rollup": "^0.45.2",
+        "rollup-plugin-commonjs": "^8.0.2",
+        "rollup-plugin-node-resolve": "^3.0.0",
+        "systemjs": "^0.19.40",
+        "typescript": "~2.1.0"
+    },
+    "files": [
+        "dist/**/*.*",
+        "package.json",
+        "README.md"
+    ],
+    "name": "@liyanjie/apiexplorer-ui",
+    "keywords": [
+        "ApiExplorer",
+        "ApiExplorerUI"
+    ],
+    "private": true,
+    "scripts": {
+        "gulp": "gulp",
+        "tsc": "tsc",
+        "prestart": "npm run tsc",
+        "start": "concurrently \"npm run tsc -w\" \"npm run serve\"",
+        "serve": "lite-server -c=bsconfig.json",
+        "build": "ngc -p tsconfig.aot.json && rollup -c rollup.config.js && npm run gulp build",
+        "serve:build": "lite-server -c=bsconfig.build.json",
+        "dist": "npm run gulp dist",
+        "serve:dist": "lite-server -c=bsconfig.dist.json",
+        "lint": "tslint ./src/**/*.ts -t verbose"
+    },
+    "version": "1.1.0"
 }

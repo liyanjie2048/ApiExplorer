@@ -14,6 +14,8 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
     /// </summary>
     public class DefaultXmlDocmentationReader : IXmlDocmentationReader
     {
+        readonly string[] xmlDocmentations;
+
         /// <summary>
         /// 
         /// </summary>
@@ -22,8 +24,6 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
         {
             xmlDocmentations = options?.XmlDocmentations.ToArray();
         }
-
-        private readonly string[] xmlDocmentations;
 
         /// <inheritdoc />
         public string GetSummary(Type type)
@@ -57,16 +57,16 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
             return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
         }
 
-        /// <inheritdoc />
-        public string GetTimestamp(MethodInfo methodInfo)
-        {
-            if (methodInfo == null)
-                return null;
-            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("timestamp")?.Value?.NoWrap();
-        }
+        ///// <inheritdoc />
+        //public string GetTimestamp(MethodInfo methodInfo)
+        //{
+        //    if (methodInfo == null)
+        //        return null;
+        //    return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("timestamp")?.Value?.NoWrap();
+        //}
 
         /// <inheritdoc />
-        public string GetSummary(MethodInfo methodInfo, string parameterName)
+        public string GetParameter(MethodInfo methodInfo, string parameterName)
         {
             if (methodInfo == null)
                 return null;
@@ -74,17 +74,27 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
         }
 
         /// <inheritdoc />
-        public string GetSummary(MethodInfo methodInfo, int responseCode)
+        public string GetResponse(MethodInfo methodInfo, int responseCode)
         {
             if (methodInfo == null)
                 return null;
             return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("response").FirstOrDefault(__ => __.Attribute("code")?.Value == responseCode.ToString())?.Value?.NoWrap();
         }
 
-        private XElement getMember(string assembly, string memberName)
+        /// <inheritdoc />
+        public Tuple<string, string, string>[] GetChanges(MethodInfo methodInfo)
+        {
+            if (methodInfo == null)
+                return new Tuple<string, string, string>[0];
+            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("change")
+                .Select(_ => new Tuple<string, string, string>(_.Attribute("timestamp")?.Value, _.Attribute("author")?.Value, _.Value?.NoWrap()))
+                .ToArray();
+        }
+
+        XElement getMember(string assembly, string memberName)
             => getMembers(assembly)?.FirstOrDefault(_ => _.Attribute("name").Value == memberName);
 
-        private IEnumerable<XElement> getMembers(string assemblyName)
+        IEnumerable<XElement> getMembers(string assemblyName)
         {
             foreach (var item in xmlDocmentations)
             {

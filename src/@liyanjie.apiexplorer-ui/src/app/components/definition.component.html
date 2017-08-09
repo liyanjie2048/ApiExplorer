@@ -1,0 +1,6 @@
+﻿<pre>
+<span *ngFor="let type of types"><span class="comment" *ngIf="type.key.summary">//{{type.key.summary}}</span>
+<b class="class">{{type.key.name}}</b> {{'{'}}
+<span *ngFor="let property of type.key.properties" [ngClass]="{deleted:isDelete(property.name,type.value)}">    {{property.name}}: (<span class="type">{{property.type.definition||property.type.name||property.type.value}}<ng-template [ngIf]="property.type.itemType">&lt;{{property.type.itemType.definition||property.type.itemType.name}}&gt;</ng-template></span>, <cite class="annotation">{{property.required?'required':'optional'}}</cite>); <span class="comment" *ngIf="property.summary">//{{property.summary}}</span>
+</span>{{'}'}}
+</span></pre>

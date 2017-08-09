@@ -8,6 +8,6 @@
         /// <summary>
         /// 
         /// </summary>
-        public static string FileNamespace = "Liyanjie.ApiExplorer.UI._liyanjie.apiexplorer_ui.dist";
+        public static string FileNamespace => "Liyanjie.ApiExplorer.UI._liyanjie.apiexplorer_ui.dist";
     }
 }
