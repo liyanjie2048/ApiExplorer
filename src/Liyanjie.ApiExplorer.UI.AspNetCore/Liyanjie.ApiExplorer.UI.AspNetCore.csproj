@@ -19,6 +19,8 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <Version>1.1.0</Version>
+    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net451|AnyCPU'">
@@ -38,9 +40,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
-    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

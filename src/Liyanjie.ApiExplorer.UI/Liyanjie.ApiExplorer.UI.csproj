@@ -10,7 +10,6 @@
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard1.1;</TargetFrameworks>
     <Description>Api查看器（UI）</Description>
-    <VersionPrefix>1.0.1</VersionPrefix>
     <Copyright>© Liyanjie.me</Copyright>
     <Authors>liyanjie8712@outlook.com</Authors>
     <Company>Liyanjie.me</Company>
@@ -20,6 +19,8 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <Version>1.1.0</Version>
+    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net45|AnyCPU'">

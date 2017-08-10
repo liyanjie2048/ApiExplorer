@@ -10,7 +10,6 @@
   <PropertyGroup>
     <TargetFrameworks>net451;netstandard1.6;</TargetFrameworks>
     <Description>Api查看器（Generator for AspNetCore.Mvc）</Description>
-    <VersionPrefix>1.0.1</VersionPrefix>
     <Copyright>© Liyanjie.me</Copyright>
     <Authors>liyanjie8712@outlook.com</Authors>
     <Company>Liyanjie.me</Company>
@@ -20,6 +19,7 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <Version>1.1.0</Version>
+    <FileVersion>1.1.0.0</FileVersion>
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
@@ -36,8 +36,8 @@
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ApiExplorer" Version="1.1.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ApiExplorer" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
