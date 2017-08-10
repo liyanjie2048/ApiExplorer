@@ -30,7 +30,7 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
         {
             if (type == null)
                 return null;
-            return getMember(type.GetAssemblyName(), type.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+            return GetMember(type.GetAssemblyName(), type.GetMemberName())?.Element("summary")?.Value?.NoWrap();
         }
 
         /// <inheritdoc />
@@ -38,7 +38,7 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
         {
             if (fieldInfo == null)
                 return null;
-            return getMember(fieldInfo.GetAssemblyName(), fieldInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+            return GetMember(fieldInfo.GetAssemblyName(), fieldInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
         }
 
         /// <inheritdoc />
@@ -46,7 +46,7 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
         {
             if (propertyInfo == null)
                 return null;
-            return getMember(propertyInfo.GetAssemblyName(), propertyInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+            return GetMember(propertyInfo.GetAssemblyName(), propertyInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
         }
 
         /// <inheritdoc />
@@ -54,7 +54,7 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
         {
             if (methodInfo == null)
                 return null;
-            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
+            return GetMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Element("summary")?.Value?.NoWrap();
         }
 
         ///// <inheritdoc />
@@ -70,7 +70,11 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
         {
             if (methodInfo == null)
                 return null;
-            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("param").FirstOrDefault(__ => __.Attribute("name")?.Value == parameterName)?.Value?.NoWrap();
+            return GetMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())
+                ?.Elements("param")
+                .FirstOrDefault(__ => __.Attribute("name")?.Value == parameterName)
+                ?.Value
+                ?.NoWrap();
         }
 
         /// <inheritdoc />
@@ -78,23 +82,28 @@ namespace Liyanjie.ApiExplorer.Generator.Defaults
         {
             if (methodInfo == null)
                 return null;
-            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("response").FirstOrDefault(__ => __.Attribute("code")?.Value == responseCode.ToString())?.Value?.NoWrap();
+            return GetMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())
+                ?.Elements("response")
+                .FirstOrDefault(__ => __.Attribute("code")?.Value == responseCode.ToString())
+                ?.Value
+                ?.NoWrap();
         }
 
         /// <inheritdoc />
-        public Tuple<string, string, string>[] GetChanges(MethodInfo methodInfo)
+        public (string Timestamp, string Author, string Description)[] GetChanges(MethodInfo methodInfo)
         {
             if (methodInfo == null)
-                return new Tuple<string, string, string>[0];
-            return getMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())?.Elements("change")
-                .Select(_ => new Tuple<string, string, string>(_.Attribute("timestamp")?.Value, _.Attribute("author")?.Value, _.Value?.NoWrap()))
-                .ToArray();
+                return new(string, string, string)[0];
+            return GetMember(methodInfo.GetAssemblyName(), methodInfo.GetMemberName())
+                ?.Elements("change")
+                .Select(_ => (_.Attribute("timestamp")?.Value, _.Attribute("author")?.Value, _.Value?.NoWrap()))
+                .ToArray() ?? new(string, string, string)[0];
         }
 
-        XElement getMember(string assembly, string memberName)
-            => getMembers(assembly)?.FirstOrDefault(_ => _.Attribute("name").Value == memberName);
+        XElement GetMember(string assembly, string memberName)
+            => GetMembers(assembly)?.FirstOrDefault(_ => _.Attribute("name").Value == memberName);
 
-        IEnumerable<XElement> getMembers(string assemblyName)
+        IEnumerable<XElement> GetMembers(string assemblyName)
         {
             foreach (var item in xmlDocmentations)
             {

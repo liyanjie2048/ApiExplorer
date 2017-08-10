@@ -120,12 +120,12 @@ namespace Liyanjie.ApiExplorer.Generator.AspNet.WebApi.Internals
         {
             return xmlDocmentationReader.GetChanges(methodInfo).Select(_ =>
             {
-                DateTime.TryParse(_.Item1, out DateTime timestamp);
+                DateTime.TryParse(_.Timestamp, out DateTime timestamp);
                 return new ApiChange
                 {
                     Timestamp = timestamp == DateTime.MinValue ? null : (DateTime?)timestamp,
-                    Author = _.Item2,
-                    Description = _.Item3,
+                    Author = _.Author,
+                    Description = _.Description,
                 };
             }).ToList();
         }

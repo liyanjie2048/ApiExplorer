@@ -64,6 +64,6 @@ namespace Liyanjie.ApiExplorer.Generator.Interfaces
         /// </summary>
         /// <param name="methodInfo"></param>
         /// <returns></returns>
-        Tuple<string, string, string>[] GetChanges(MethodInfo methodInfo);
+        (string Timestamp, string Author, string Description)[] GetChanges(MethodInfo methodInfo);
     }
 }
